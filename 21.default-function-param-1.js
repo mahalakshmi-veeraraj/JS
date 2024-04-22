@@ -11,6 +11,7 @@ add(4, 5);
 multiply(6, 9);
 subtract(10, 6);
 add(4);
+add();
 
 var addWithDefParam = function(a = 0, b = 0) {
     console.log("Addition result is "+(a + b));
