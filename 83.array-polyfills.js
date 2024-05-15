@@ -1,13 +1,13 @@
 // Array Polyfill Implementation. 
 // Return the element at the specific index in the array.
-Array.prototype.myAt = function(index) {
+Array.prototype.customAt = function(index) {
     let array = this;
     index = index < 0 ? (array.length + index) : index;
     if(index >= array.length) return undefined;
     return array[index];
 }
 // Concatenate two arrays.
-Array.prototype.myConcat = function(array2) {
+Array.prototype.customConcat = function(array2) {
     let array1 = this;
     let concatenatedArray = [];
     for (let i = 0; i < array1.length; i++) {
@@ -19,7 +19,7 @@ Array.prototype.myConcat = function(array2) {
     return concatenatedArray;
 }
 // Filter elements from the array based on the specific condition.
-Array.prototype.myFilter = function (func) {
+Array.prototype.customFilter = function (func) {
     let array = this;
     let filteredNewArray = [];
     for (let i = 0; i < array.length; i++) {
@@ -32,7 +32,7 @@ Array.prototype.myFilter = function (func) {
 // find is a method in JavaScript that is used to find the first element in an array
 // that satisfies the provided callback function condition.
 // If no element satisifies the provided callback function condition, it will return undefined.
-Array.prototype.myFind = function(func) {
+Array.prototype.customFind = function(func) {
     let array = this;
     for (let i = 0; i < array.length; i++) {
         if (func(array[i], i, array)) {
@@ -44,7 +44,7 @@ Array.prototype.myFind = function(func) {
 // findIndex is a method in JavaScript that is used to find the index of the first element in an array
 // that satisfies the provided callback function condition.
 // If no element satisifies the provided callback function condition, it will return -1.
-Array.prototype.myFindIndex = function(func) {
+Array.prototype.customFindIndex = function(func) {
     let array = this;
     for (let i = 0; i < array.length; i++) {
         if (func(array[i], i, array)) {
@@ -56,7 +56,7 @@ Array.prototype.myFindIndex = function(func) {
 // findLast is a method in JavaScript that is used to find the last element in an array
 // that satisfies the provided callback function condition.
 // If no element satisifies the provided callback function condition, it will return undefined.
-Array.prototype.myFindLast = function(func) {
+Array.prototype.customFindLast = function(func) {
     let array = this;
     for (let i = array.length - 1; i >= 0; i--) {
         if (func(array[i], i, array)) {
@@ -68,7 +68,7 @@ Array.prototype.myFindLast = function(func) {
 // findLastIndex is a method in JavaScript that is used to find the index of the last element in an array
 // that satisfies the provided callback function condition.
 // If no element satisifies the provided callback function condition, it will return -1.
-Array.prototype.myFindLastIndex = function(func) {
+Array.prototype.customFindLastIndex = function(func) {
     let array = this;
     for (let i = array.length - 1; i >= 0; i--) {
         if (func(array[i], i, array)) {
@@ -78,7 +78,7 @@ Array.prototype.myFindLastIndex = function(func) {
     return -1;
 }
 // Iterate over the array and will not return anything.
-Array.prototype.myForEach = function (func) {
+Array.prototype.customForEach = function (func) {
     let array = this;
     for (let i = 0; i < array.length; i++) {
         func(array[i], i, array);
@@ -86,7 +86,7 @@ Array.prototype.myForEach = function (func) {
 }
 // indexOf method in JavaScript is used to find the index of the element in an array from the left to right. 
 // If startIndexFromTheBeginning is provided then the search starts from that particular index else 0;
-Array.prototype.myIndexOf = function(element, startIndexFromTheBeginning) {
+Array.prototype.customIndexOf = function(element, startIndexFromTheBeginning) {
     let array = this;
     let startingIndex = startIndexFromTheBeginning ? startIndexFromTheBeginning : 0;
     for (let i = startingIndex; i < array.length; i++) {
@@ -96,7 +96,7 @@ Array.prototype.myIndexOf = function(element, startIndexFromTheBeginning) {
 }
 // lastIndexOf method in JavaScript is used to find the index of the element in an array from the right to left. 
 // If startIndexFromTheEnd is provided then the search starts from that particular index else array length - 1;
-Array.prototype.myLastIndexOf = function(element, startIndexFromTheEnd) {
+Array.prototype.customLastIndexOf = function(element, startIndexFromTheEnd) {
     let array = this;
     let startingIndexFromTheEnd = startIndexFromTheEnd ? startIndexFromTheEnd : array.length - 1;
     for (let i = startingIndexFromTheEnd; i >= 0; i--) {
@@ -105,7 +105,7 @@ Array.prototype.myLastIndexOf = function(element, startIndexFromTheEnd) {
     return -1;
 }
 // Itrerate over the array and will return the transformed array as a result.
-Array.prototype.myMap = function (func) {
+Array.prototype.customMap = function (func) {
     let array = this;
     let transformedNewArray = [];
     for (let i = 0; i < array.length; i++) {
@@ -114,7 +114,7 @@ Array.prototype.myMap = function (func) {
     return transformedNewArray;
 }
 // Remove the last element from the array.
-Array.prototype.myPop = function () {
+Array.prototype.customPop = function () {
     let array = this;
     if (!array) return undefined;
     const lastIndex = array.length - 1;
@@ -123,13 +123,13 @@ Array.prototype.myPop = function () {
     return lastElement;
 }
 // Insert the element at the last position of the array.
-Array.prototype.myPush = function (element) {
+Array.prototype.customPush = function (element) {
     let array = this;
     array[array.length] = element;
     return array.length; // Return the new length of the array.
 }
 // Iterate over the array and apply the specific logic and return the reduced single object/value.
-Array.prototype.myReduce = function (func, acc) {
+Array.prototype.customReduce = function (func, acc) {
     let array = this;
     for (let i = 0; i < array.length; i++) {
         acc = func(array[i], acc);
@@ -137,7 +137,7 @@ Array.prototype.myReduce = function (func, acc) {
     return acc;
 }
 // Reverse the elements of the array. Reverse modifies the original array.
-Array.prototype.myReverse = function () {
+Array.prototype.customReverse = function () {
     let array = this;
     let reversedArray = [];
     for (let i = array.length - 1; i >= 0; i--) {
@@ -149,7 +149,7 @@ Array.prototype.myReverse = function () {
     return reversedArray;
 }
 // Insert the element at the first position of the array.
-Array.prototype.myShift = function () {
+Array.prototype.customShift = function () {
     let array = this;
     if (!array) return undefined;
     const firstElement = array[0];
@@ -160,7 +160,7 @@ Array.prototype.myShift = function () {
     return firstElement;
 }
 // Slice the specific portion of the array and return the sliced array. Slice will not modifies the original array.
-Array.prototype.mySlice = function (start, end) {
+Array.prototype.customSlice = function (start, end) {
     let array = this;
     start = !start ? 0 : start;
     end = Math.min((!end ? array.length : end), array.length);
@@ -173,7 +173,7 @@ Array.prototype.mySlice = function (start, end) {
 }
 // some method in JavaScript is used to check whether at least one element in an array satisfies the 
 // condition defined inside the callback function.
-Array.prototype.mySome = function(func) {
+Array.prototype.customSome = function(func) {
     let array = this;
     for (let i = 0; i < array.length; i++) {
         if (func(array[i], i, array)) return true;
@@ -181,7 +181,7 @@ Array.prototype.mySome = function(func) {
     return false;
 }
 // Remove the first element from the array and return the new length as a result.
-Array.prototype.myUnshift = function (element) {
+Array.prototype.customUnshift = function (element) {
     let array = this;
     for (let i = 1; i < array.length; i++) {
         array[i] = array[i - 1]; 
